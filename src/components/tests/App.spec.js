@@ -1,31 +1,23 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { shallow } from "enzyme";
 import App from "../App";
+import CommentBox from "../CommentBox";
+import CommentList from "../CommentList";
 
-it("renders app without crashing", () => {
-  const div = document.createElement("div");
+describe("App Component", () => {
+  let wrapper;
 
-  ReactDOM.render(<App />, div);
+  beforeEach(() => (wrapper = shallow(<App />)));
 
-  ReactDOM.unmountComponentAtNode(div);
-});
+  it("renders app without crashing", () => {
+    expect(wrapper).toBeDefined();
+  });
 
-it("shows comment box", () => {
-  const div = document.createElement("div");
+  it("shows comment box", () => {
+    expect(wrapper.find(CommentBox)).toHaveLength(1);
+  });
 
-  ReactDOM.render(<App />, div);
-
-  expect(div.innerHTML).toContain("Comment Box");
-
-  ReactDOM.unmountComponentAtNode(div);
-});
-
-it("shows comment list", () => {
-  const div = document.createElement("div");
-
-  ReactDOM.render(<App />, div);
-
-  expect(div.innerHTML).toContain("Comment List");
-
-  ReactDOM.unmountComponentAtNode(div);
+  it("shows comment list", () => {
+    expect(wrapper.find(CommentList)).toHaveLength(1);
+  });
 });
