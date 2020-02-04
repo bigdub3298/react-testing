@@ -1,10 +1,23 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
+
+import Root from "Root";
 import CommentBox from "components/CommentBox";
 
 let wrapper;
 
-beforeEach(() => (wrapper = shallow(<CommentBox />)));
+beforeEach(
+  () =>
+    (wrapper = mount(
+      <Root>
+        <CommentBox />
+      </Root>
+    ))
+);
+
+afterEach(() => {
+  wrapper.unmount();
+});
 
 describe("CommentBox component", () => {
   it("has a text area and a button", () => {
