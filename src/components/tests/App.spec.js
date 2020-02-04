@@ -9,8 +9,8 @@ describe("App Component", () => {
 
   beforeEach(() => (wrapper = shallow(<App />)));
 
-  it("renders app without crashing", () => {
-    expect(wrapper).toBeDefined();
+  it("renders without crashing", () => {
+    expect(wrapper.exists()).toBeTruthy();
   });
 
   it("shows comment box", () => {
