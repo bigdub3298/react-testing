@@ -1,17 +1,17 @@
 import { saveComment } from "actions";
 
-describe("Save Comment action creator", () => {
+describe("saveComment action creator", () => {
   let comment, action;
   beforeEach(() => {
     comment = "New comment";
     action = saveComment(comment);
   });
 
-  it("returns an action of type SAVE_COMMENT", () => {
+  it("has type of SAVE_COMMENT", () => {
     expect(action.type).toBe("SAVE_COMMENT");
   });
 
-  it("returns an action with payload passed in comment", () => {
+  it("has correct payload", () => {
     expect(action.payload).toBe("New comment");
   });
 });
