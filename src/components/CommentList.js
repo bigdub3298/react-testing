@@ -3,13 +3,13 @@ import { connect } from "react-redux";
 
 class CommentList extends Component {
   renderCommentList() {
-    return this.props.comments.map(comment => {
+    return this.props.comments.map((comment, index) => {
       return (
-        <div className="item">
+        <div className="item" key={index}>
           <div className="right floated content" style={{ color: "red" }}>
-            <i class="times icon"></i>
+            <i className="times icon"></i>
           </div>
-          <div className="contnet">
+          <div className="content">
             <div className="header">{comment}</div>
           </div>
         </div>
@@ -23,7 +23,6 @@ class CommentList extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return { comments: state.comments };
 };
 export default connect(mapStateToProps)(CommentList);
