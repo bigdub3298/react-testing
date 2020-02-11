@@ -27,4 +27,9 @@ describe("CommentList component", () => {
   it("has one item per comment", () => {
     expect(wrapper.find(".item")).toHaveLength(2);
   });
+
+  it("displays the text for each comment", () => {
+    expect(wrapper.render().text()).toContain("Comment 1");
+    expect(wrapper.render().text()).toContain("Comment 2");
+  });
 });
